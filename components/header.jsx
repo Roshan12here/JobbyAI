@@ -4,6 +4,7 @@ import Link from "next/link"
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { checkUser } from "@/lib/checkUser"
+import { PenTool } from "lucide-react"
 
 export default async function Header() {
   await checkUser()
@@ -64,8 +65,14 @@ export default async function Header() {
                     Interview Prep
                   </Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/ai-assistant" className="flex items-center gap-2">
+                    <PenTool className="h-4 w-4" />
+                    AO Assistant
+                  </Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu>``
           </SignedIn>
 
           <SignedOut>
